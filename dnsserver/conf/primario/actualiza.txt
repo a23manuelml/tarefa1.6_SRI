@@ -1,0 +1,6 @@
+server ns.starwars.lan
+zone starwars.lan
+update delete cliente1.exemplo.lan
+update add cliente1.exemplo.lan 86400 A 192.168.0.124
+show
+send

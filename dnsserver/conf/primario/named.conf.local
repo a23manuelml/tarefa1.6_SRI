@@ -1,0 +1,30 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+key "llave2" {
+	algorithm hmac-sha256;
+	secret "t4wJiLvR4dcy0wtmQeoo2HKOooUrFoKdTuDrqw5R174=";
+};
+
+zone "starwars.lan" {
+    type master;
+    file "/etc/bind/db.starwars.lan";
+    allow-update { key "llave2"; 192.168.20.11; };
+};
+
+zone "20.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.20.168.192";
+    allow-update { key "llave2"; 192.168.20.11; };
+};
+
+zone "galaxia.lan" {
+    type master;
+    file "/etc/bind/db.galaxia.lan";
+    allow-update { key "rndc-key"; }
+};
